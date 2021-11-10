@@ -1,6 +1,88 @@
 
+/*hamburger menu*/ 
+
+nav {
+    display: none;
+    border-bottom: 1px;
+    height: 70px;
+    flex-direction: column;
+    
+
+}
+
+ul a{
+    text-decoration: none;
+    padding: 5px;
+    color: #2870b9;
+
+}
+nav ul {
+    margin: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color: #2870b9;
+    background-color: #fff;
+  
+
+}
+#hamburger-menu:checked ~ nav {
+
+    display: block;
+}
+
+#hamburger-menu {
+    display: none;
+    
+}
+
+.hamburger-label{
+    padding-right: 10px ;
+    color: #fff;
+    display: block;
+}
+
+.container-2 {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+   
+}
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+}
+
+#container a , .container a{
+    margin-top: 0px;
+}
+
+
+
+main {
+   max-width: 1300px;
+    margin: auto;
+}
+
+.orenge {
+    background-color: #d07c30;
+
+}
+
+.login , .cart_image, .search_image {
+    padding: 2px 0px;
+   
+}
+
+
+
 body {
     font-family: "montserrat";
+    
 
 }
 
@@ -9,95 +91,62 @@ header a {
     text-decoration: none;
     padding: 10px;
     text-align: center;
-    margin:  50px auto;
 }
   
-nav li {
-    
-display: inline-block;
-    
-}
-
-.orange {
-    background-color: #d07c30;
-    text-align: center;
-
-}
-.orange a {
-    padding: 10px;
-    position: relative;
-    left: 95px;
-    text-align: center;
-}
-.orange1 {
-    display: flex;
-    justify-content: left;
-    margin-right: 100px;
-    margin: auto;
-    position: relative;
-    right: 230px;
-}
-
-.orange_margin {
-    margin: 1px;
-    margin: auto;
-    max-width: 1300px;
-    display: flex;
-    justify-content: right;
-    margin: auto;
-}
 
 .blue_margin{
     margin: 0px;
-    margin: auto;
+    margin: 0 auto;
     max-width: 1300px;
 }
 
 .blue {
     background-color: #2870b9;
+    
+   
+
 }
 
 .blue a{
-    color: #fff;
-    padding:90px;
-    text-align: center;
-    
+    color:#2870b9;
+    font-size: 20px;
 }
 
 .cart_image {
-  max-width: 25px;
+  max-width: 30px;
 }
 
-nav {
-    display: flex;
-    margin: auto;
- 
-}
 
 .login_image {
-    max-width: 25px;
+    max-width: 30px;
     border-radius: 50%;  
+
 }
    
 .search_image {
-    max-width: 25px;
+    max-width: 30px;
    
 }
 
 
 .logo_image {
     background-color: #fff;
-    max-width: 440px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    max-width: 300px;
     display: block;
     margin: 0 auto;
+    padding: 10px;
 }
 
 
 .Home_image {
-    max-width: 25px;
+    max-width: 30px;
+    
+    border-left: 1px solid #fff;
+    border-right-style: inset;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
 
 
 .Register {
@@ -109,78 +158,63 @@ nav {
     align-content: center;
     max-width: 1300px;
     margin: auto;
+    height: 3vh;
 
     
 }
 
+
+.cta_men ,
+.cta_women,
 .cta_explore {
-    background-image: url('../images/explore.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: left;
-    background-position-y: bottom;
-    min-height: 70vh;
+    background-position-y: top;
+    height: 400px;
     margin: 5px auto;
     margin-top: 0px;
     max-width: 1300px;
     position: relative;
    
 }
-
+.cta_explore{
+    background-image: url('../images/explore.jpeg');
+    min-height: 500px;
+}
 
 .cta_men {
-    background-image: url('../images/men\ cta.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url('../images/men-cta.jpeg');
     background-position-x: right;
-    background-position-y: bottom;
-    min-height: 60vh;
-    margin: 5px auto; 
-    max-width: 1300px;
-    position: relative;
+    
 }
 
 
 .cta_women {
-    background-image: url('../images/women\ cta.jpg');
-   
-    background-repeat: no-repeat;
-    background-position-x: right;
-    background-position-y: top;
-    min-height:60vh;
-    margin: 5px auto; 
-    max-width: 1300px;
-    position: relative;
+    background-image: url('../images/women-cta.jpg');
+    background-position-y: bottom;
 }
 
 .cta_orange{
     position: relative;
 }
 
-.explore_position {
+.women_position ,  .explore_position {
     position: absolute;
-    top: 70%;
-    left: 80%;
+    bottom: 10%;
+    right: 5%;
 }
 
 .men_position {
     position: absolute;
-    top: 70%;
-    left:10%;
+    bottom: 10%;
+    left:5%;
     
 }
 
-.women_position {
-    position: absolute;
-    top: 70%;
-    left:80%;
-}
 
 
-nav ul {
-    margin: 0px;
-    padding: 0px;
-}
+
 /*link*/ 
 a {
     text-decoration: none;
@@ -188,20 +222,37 @@ a {
 
 .cta_blue a {
     background-color: #2870b9;
-    border-radius: 20px;
+    border-radius: 15px;
     color: #fff;
     font-size: 25px;
-    padding: 15px 35px ;
+    padding: 15px 40px ;
     
 }
+
+.cta_blue a:hover ,
+.cta_blue-big:hover 
+{
+    background-color: #5586b8;
+}
+
 
 .cta_orange a {
     background-color: #d07c30;
     color: #fff;
     font-size: 25px;
-    padding: 15px 35px ;
-    border-radius: 20px;
+    padding: 13px 40px ;
+    border-radius: 15px;
     
+}
+
+.cta_men a {
+    padding: 15px 60px;
+}
+
+
+
+.cta_orange a:hover {
+    background-color: #bf8655;
 }
 
 .cta_blue-big {
@@ -214,11 +265,9 @@ a {
     grid-column: auto;
     margin: 10px;
    
+   
 }
 
-.a nav a {
-    padding: 50px;
-}
 
 .Register a {
 color: #A84732;
@@ -233,17 +282,29 @@ font-family: 'Montserrat';
 
 .items {
    display: grid;
-   grid-template-columns: 1fr auto;
+   grid-template-columns: 1fr auto ;
+   grid-template-rows: 1fr 60px 10px 100px ;
    align-items: center;
-   background-color: whitesmoke;  
+   background-color: #fff; 
+   box-shadow: 0 0 20px -8px ; 
+   
 }
 
 .items h2 {
-margin: 10px;
+margin:auto; 
+
+grid-column: 1/3;
+padding-right: 110px;
 }
 
 .items h3 {
     margin-bottom: 20px;
+    grid-row: 3;
+    grid-column: 1;
+    margin: 10px;
+    font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
 }
 
 
@@ -261,8 +322,8 @@ margin: 10px;
 
 .h2-size {
 display: grid;
-grid-template-columns: repeat(3,1fr);
-max-width: 1300px;
+grid-template-columns: 1fr;
+
 margin: 50px auto;
 grid-gap: 15px;
 }
@@ -288,16 +349,21 @@ grid-gap: 15px;
 footer {
 background-color: #08080892;
 display: flex;
-flex-direction: row;
-max-height: 40vh;
-align-items: center;
+justify-content: space-between;
+flex-direction: column;
+
+
 }
 
 footer div{
     padding:30px;
     color: white;
     margin: auto;
+
+
 }
+
+
 
 
 footer h1 {
@@ -315,6 +381,7 @@ footer h1 {
     font-display: swap;
     font-size: 30px;
     color: white;
+   
 }
 
 .Follow-us {
@@ -336,7 +403,5 @@ footer p {
   font-weight: 300;
   font-display: swap;
 }
-
-
 
 
