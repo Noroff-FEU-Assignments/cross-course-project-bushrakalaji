@@ -1,4 +1,4 @@
-import { productArray } from "./contants/product.js";
+import { productArray } from "./contants/bestInTestPrList.js";
 console.log(productArray);
 let cartArray = [];
 
@@ -23,31 +23,24 @@ productArray.forEach((product) => {
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {
   button.addEventListener("click", handleclick);
-
- 
- if(cartArray.length===0){
-    
-  }
-
-
 });
 
-function handleclick(event){
-    // const id = this.dataset.product;
-    // cartArray.push(event.target.dataset.product);
-    const itemToAdd = productArray.find(item => item.id == event.target.dataset.product);
-    cartArray.push(itemToAdd);
-    console.log(cartArray);
-    localStorage.setItem("cartNumber", JSON.stringify(cartArray.length))
-    localStorage.setItem("cartList", JSON.stringify(cartArray));
-    showNumber()
-   ;
+function handleclick(event) {
+  // const id = this.dataset.product;
+  // cartArray.push(event.target.dataset.product);
+  const itemToAdd = productArray.find(
+    (item) => item.id == event.target.dataset.product
+  );
+  cartArray.push(itemToAdd);
+  console.log(cartArray);
+  localStorage.setItem("cartNumber", JSON.stringify(cartArray.length));
+  localStorage.setItem("cartList", JSON.stringify(cartArray));
+  showNumber();
 }
 
- function showNumber(){   
-    let cartStorge = JSON.parse(localStorage.getItem("cartNumber"))
-    cartNumberLength.innerHTML ="";
-    cartNumberLength.innerHTML += cartStorge;
-    
-} 
-
+function showNumber() {
+   
+  let cartStorge = JSON.parse(localStorage.getItem("cartNumber"));
+  cartNumberLength.innerHTML = "";
+  cartNumberLength.innerHTML = cartStorge;
+}
