@@ -565,6 +565,11 @@ header a {
   height: 250px;
 }
 
+.cta_explore:hover {
+  box-shadow: inset 0px 0px 50px 0px #ffffff;
+}
+
+
 .cta_men {
   background-image: url("../images/men-cta.jpeg");
   background-position-x: right;
