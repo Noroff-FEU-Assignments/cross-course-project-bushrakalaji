@@ -12,10 +12,6 @@ const email = document.querySelector("#email");
 
 const emailError = document.querySelector("#emailError");
 
-const address = document.querySelector("#address");
-
-const addressError = document.querySelector("#addressError");
-
 function validateForm(event) {
   event.preventDefault();
 
@@ -37,11 +33,6 @@ function validateForm(event) {
     emailError.style.display = "block";
   }
 
-  if (checkLength(address.value, 25) === true) {
-    addressError.style.display = "none";
-  } else {
-    addressError.style.display = "block";
-  }
 }
 
 contactForm.addEventListener("submit", validateForm);
