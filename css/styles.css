@@ -1,5 +1,26 @@
-/*items pages*/
 
+/*items pages*/
+a {
+    color: #0a3641;
+
+}
+
+.breadcrump a {
+
+    text-decoration: underline;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #d07c30;
+  
+    
+}
+.breadcrump a:hover {
+    font-size: 20px;
+}
+.breadcrump{
+    margin-top: 30px;
+}
 .sale-price {
   display: flex;
   flex-direction: column;
@@ -285,6 +306,18 @@ h3 {
   box-shadow: 3px 1px 4px 0px #0000002c;
 }
 
+.cartSections{
+    display: flex;
+   
+}
+
+.embtyCart {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
+}
+
 .total,
 .checkOut {
   font-size: 25px;
@@ -502,7 +535,7 @@ header a {
 }
 
 .Register {
-  background-color: #2870b950;
+  background-color: #9c0000;
   margin-top: 0px;
   margin-bottom: 0px;
   display: flex;
@@ -510,7 +543,7 @@ header a {
   align-content: center;
   max-width: 1300px;
   margin: auto;
-  height: 30px;
+  height: 40px;
 }
 
 /* cta design */
@@ -610,11 +643,15 @@ a {
 }
 
 .Register a {
-  color: #a84732;
+  color: #fff;
   font-weight: 300;
   font-size: 15px;
   margin: auto;
 }
+.Register a:hover {
+font-size: 17px;
+}
+
 
 /* items design & grid */
 
@@ -717,6 +754,13 @@ section img {
   display: flex;
   flex-direction: column;
 }
+.items a {
+    grid-column: -1/1;
+}
+.items a :hover {
+    width: 101%;
+   
+}
 
 /* Man page , Sale page , women page */
 
@@ -746,13 +790,13 @@ footer div {
   margin: auto;
 }
 
+
 /* footer */
 
-footer h2 {
+footer h2 , .contact-us a {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
   font-size: 20px;
 }
 
@@ -833,6 +877,9 @@ footer p {
   max-width: 1300px;
   margin: auto;
 }
+.recomm-items {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
 /* add to cart */
 .add-to-cart {
@@ -854,7 +901,10 @@ footer p {
 .add-to-cart_page h1 {
   font-size: 20px;
 }
-
+.cartPage_img img {
+    width: 100%;
+    max-width: 300px;
+}
 @media (min-width: 640px) {
   .item-page-informastion {
     margin-left: 10px;
@@ -865,6 +915,17 @@ footer p {
 }
 
 @media (min-width: 600px) {
+
+    .Register a {
+        color: #fff;
+        font-weight: 300;
+        font-size: 18px;
+        margin: auto;
+      }
+      .Register a:hover {
+      font-size: 20px;
+      }
+      
   .search-box:hover > .search-text {
     width: 240px;
     padding: 0 6px;
@@ -951,6 +1012,11 @@ footer p {
     left: 3%;
     padding-top: 10px;
   }
+
+  .recomm-items {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
 }
 
 @media (min-width: 850px) {
@@ -1017,6 +1083,10 @@ footer p {
   .about-as_page h1 {
     font-size: 35px;
   }
+
+  .recomm-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 @media (max-width: 400px) {
@@ -1024,4 +1094,52 @@ footer p {
     width: 82px;
     padding: 0 6px;
   }
+  .recomm-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+}
+
+.contact-container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+#contactForm {
+  padding: 2em;
+  background: white;
+  border-radius: 1rem;
+  width: 300px;
+}
+
+.form-input{
+  width: 100%;
+  margin-top: 2px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #ddebf9a0;
+  border-color:#2870b9;
+  color: #fff;
+}
+
+
+.form-label {
+  display: block;
+  margin-top: 1rem;
+}
+
+.form-error {
+  display: none;
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.contact-us a{
+  color: #fff;
+
+
+}
+.contact-us a:hover  , .about-us a:hover  {
+  color: #d07c30;
 }

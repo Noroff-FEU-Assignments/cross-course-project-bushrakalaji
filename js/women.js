@@ -7,8 +7,9 @@ const cartNumberLength = document.querySelector(".cart-number");
 womenProductList.forEach((product) => {
   productContainer.innerHTML += `
      
+  
   <div class="items">
-        <div class="item-grid"><a href="${product.Url}"><img src=${product.image} alt="woman wearing a raincoat" /></a></div>
+       <a href="womenDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"s></a>
         <h2>${product.name}</h2>
         <h3>${product.catagory}</h3>
         <p>${product.price} $</p>

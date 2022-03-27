@@ -8,7 +8,7 @@ productArray.forEach((product) => {
   productContainer.innerHTML += `
      
   <div class="items">
-        <div class="item-grid"><a href="${product.Url}"><img src=${product.image} alt="woman wearing a raincoat" /></a></div>
+  <a href="bestIntestDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"></a>
         <h2>${product.name}</h2>
         <h3>${product.catagory}</h3>
         <p>${product.price} $</p>

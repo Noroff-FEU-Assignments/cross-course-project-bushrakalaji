@@ -7,6 +7,7 @@ export const menProductList = [
     catagory: "Men",
     price: 200,
     image: "../images/item-3.jpeg",
+    pageImg: "../images/item3-page.jpg",
     itemNumber: "#333333",
     Url: "https://elated-kepler-1f7dec.netlify.app/item3.html",
   },

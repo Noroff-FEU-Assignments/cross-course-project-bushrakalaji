@@ -8,6 +8,7 @@ export const womenProductList = [
         catagory: "Women",
         price: 220,
         image : "../images/item-2.jpeg",
+        pageImg:"../images/women.jpeg",
         Url: "https://elated-kepler-1f7dec.netlify.app/item2.html",
       },{
         name: "RAINYDAYS RAIN JACET",

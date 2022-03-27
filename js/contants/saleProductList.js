@@ -9,6 +9,7 @@ export const saleProductList = [
         price: 99,
         oldPrice: "300",
         image : "../images/item-4.jpg",
+        pageImg:"images/item4.jpg",
         Url: "item4.html",
       },{
         name: "RAINYDAYS RAIN JACET",
