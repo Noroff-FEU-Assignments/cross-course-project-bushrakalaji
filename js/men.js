@@ -1,28 +1,97 @@
-import { menProductList } from "./contants/menProductList.js";
-console.log(menProductList);
+// import { menProductList } from "./contants/menProductList.js";
+// console.log(menProductList);
+
+
 let cartArray = [];
+
 
 const productContainer = document.querySelector(".man-page");
 const cartNumberLength = document.querySelector(".cart-number");
-menProductList.forEach((product) => {
-  productContainer.innerHTML += `
+const url = "https://rainydays.bushrakalaji.com/wp-json/wp/v2/product?product_cat=22"
+
+
+async function getapi(){
+
+  try {
+
+    const responce = await fetch(url);
+    const result = await responce.json();
+    // const men = result;
+
+   console.log(result);
+
+
+  result.forEach(function(menPrdcts) {
+  
+  productContainer.innerHTML +=  `
   
  
-  <div class="items"> 
+    <div class="items"> 
+    
+    <h2>${menPrdcts.title.rendered}</h2>
+    <h3>${menPrdcts.catagory}</h3>
+    <p>${menPrdcts.price}$</p>
+    
+    <button type="button" class= "blue-botton cta_blue-big" data-product="${menPrdcts.id}">Add to cart</button>
+  </div>
   
-<a href="menDetails.html?id=${product.id} class="item-grid"" ><img src=${product.image} alt="woman wearing a raincoat"></a>
-  <h2>${product.name}</h2>
-  <h3>${product.catagory}</h3>
-  <p>${product.price}$</p>
+  `  
   
-  <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
-</div>
+  });
+ 
+
+
+    
+
+  }
+
+
+
+catch {
+
+}
+}
+getapi()
+
+// menProductList.forEach((product) => {
+//   productContainer.innerHTML += `
+  
+ 
+//   <div class="items"> 
+  
+// <a href="menDetails.html?id=${product.id} class="item-grid"" ><img src=${product.image} alt="woman wearing a raincoat"></a>
+//   <h2>${product.name}</h2>
+//   <h3>${product.catagory}</h3>
+//   <p>${product.price}$</p>
+  
+//   <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
+// </div>
 
 
    
   
-    `;
-});
+//     `;
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {
