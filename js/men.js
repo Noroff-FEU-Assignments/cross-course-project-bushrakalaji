@@ -7,8 +7,7 @@ let cartArray = [];
 
 const productContainer = document.querySelector(".man-page");
 const cartNumberLength = document.querySelector(".cart-number");
-const url = "https://rainydays.bushrakalaji.com/wp-json/wp/v2/product?product_cat=22"
-
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?product_cat=19"
 
 async function getapi(){
 
@@ -28,9 +27,9 @@ async function getapi(){
  
     <div class="items"> 
     
-    <h2>${menPrdcts.title.rendered}</h2>
-    <h3>${menPrdcts.catagory}</h3>
-    <p>${menPrdcts.price}$</p>
+    <h2>${menPrdcts.name}</h2>
+    <h3>${menPrdcts.categories[0].name}</h3>
+    <p>${menPrdcts.prices.price}$</p>
     
     <button type="button" class= "blue-botton cta_blue-big" data-product="${menPrdcts.id}">Add to cart</button>
   </div>
