@@ -1,24 +1,55 @@
-import { productArray } from "./contants/bestInTestPrList.js";
-console.log(productArray);
+// import { productArray } from "./contants/bestInTestPrList.js";
+// console.log(productArray);
 let cartArray = [];
 
 const productContainer = document.querySelector(".best-product");
 const cartNumberLength = document.querySelector(".cart-number");
-productArray.forEach((product) => {
-  productContainer.innerHTML += `
-     
-  <div class="items">
-  <a href="bestIntestDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"></a>
-        <h2>${product.name}</h2>
-        <h3>${product.catagory}</h3>
-        <p>${product.price} $</p>
-        <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
-      </div>
-  </div>
-     
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products";
+
+async function getapi() {
+  try {
+    const responce = await fetch(url);
+    const result = await responce.json();
+    const filterResult = result.filter((item) => item.categories[0].id === 22);
+
+    console.log(filterResult);
+
+    filterResult.forEach(function (prdcts) {
+      productContainer.innerHTML += `
+    <div class="items"> 
+    <a href="bestIntestDetails.html?id=${prdcts.id}" class="item-grid"><img src=${prdcts.images[0].src} alt="woman wearing a raincoat"></a>
+    <h2>${prdcts.name}</h2>
+    <h3>${prdcts.tags[0].name}</h3>
+    <p>${prdcts.prices.price}$</p>
     
-    `;
-});
+    <button type="button" class= "blue-botton cta_blue-big" data-product="${prdcts.id}">Add to cart</button>
+  </div>
+  
+  `;
+
+
+  
+    });
+  } catch (error) {
+    console.log("error: ", error);
+  }
+}
+getapi();
+
+// productArray.forEach((product) => {
+//   productContainer.innerHTML += `
+
+//   <div class="items">
+//   <a href="bestIntestDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"></a>
+//         <h2>${product.name}</h2>
+//         <h3>${product.catagory}</h3>
+//         <p>${product.price} $</p>
+//         <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
+//       </div>
+//   </div>
+
+//     `;
+// });
 
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {
@@ -39,7 +70,6 @@ function handleclick(event) {
 }
 
 function showNumber() {
-   
   let cartStorge = JSON.parse(localStorage.getItem("cartNumber"));
   cartNumberLength.innerHTML = "";
   cartNumberLength.innerHTML = cartStorge;

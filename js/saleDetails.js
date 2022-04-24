@@ -1,6 +1,6 @@
-import { saleProductList } from "./contants/saleProductList.js";
+// import { saleProductList } from "./contants/saleProductList.js";
 
-console.log(saleProductList);
+// console.log(saleProductList);
 let cartArray = [];
 
 const cartNumberLength = document.querySelector(".cart-number");
@@ -11,57 +11,102 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 
-const prdctId = params.get("id");
+const id = params.get("id");
 
-const singleUrl = "https://elated-kepler-1f7dec.netlify.app/" + prdctId;
+const singleUrl =
+  "https://rainydays.bushrakalaji.com/wp-json/wc/store/products/" + id;
 
+async function singleResult() {
+  try {
+    const responce = await fetch(singleUrl);
+    const singelResult = await responce.json();
+    console.log({ singelResult });
 
-function prdct(product) {
-  
     detailsPage.innerHTML += `
-    
+
     <div class="item-page_img">
 
-    <img src=${product.pageImg} alt="men wearing RainyDays jacet" class="item3-img ">
-   
-
-  </div>
-
-  <div class="item-page-informastion">
-
-      <div class="item-info">
-      <h1>${product.name}</h1>
-      <p>${product.catagory}</p>
-      <h3>Item number : ${product.itemNumber}</h3>
+    <img src=${singelResult.images[1].src} alt="men wearing RainyDays jacet" class="item3-img ">
+    </div>
+    
+    <div class="item-page-informastion">
+    
+    <div class="item-info">
+    <h1>${singelResult.name}</h1>
+      <p>${singelResult.tags[0].name}</p>
+      <h3>Item number : ${singelResult.sku}</h3>
+    </div>
+    
+    <div>
+    <h2>Color</h2>
+    <p>${singelResult.short_description}</p>
+    </div>
+    
+    <div>
+    <h2>Size</h2>
+    <p>One size</p>
+    </div>
+    
+    <div class="item-price">
+      <div class="sale-price">
+      <h2>${singelResult.prices.sale_price} ${singelResult.prices.currency_symbol}</h2>
+      <h4 class="before-sale bfr-sale">${singelResult.prices.regular_price} ${singelResult.prices.currency_symbol}</h4>
       </div>
 
-      <div>
-        <h2>Color</h2>
-        <p>${product.color}</p>
-      </div>
-
-      <div>
-        <h2>Size</h2>
-        <p>One size</p>
-      </div>
-
-      <div class="item-price">
-               <div class="sale-price">
-              <h2>${product.price}$</h2>
-              <h4 class="before-sale bfr-sale">800$</h4>
-           
-              </div>
-                <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
-
-                </div>
-            
-    `
-
-  
+    <button type="button" class= "blue-botton cta_blue-big" data-product="${singelResult.id}">Add to cart</button>
+    </div>
+  `;
+  } catch (error) {console.log("error: ", error)}
 }
+singleResult();
 
-prdct(saleProductList[0]);
+// const prdctId = params.get("id");
 
+// const singleUrl = "https://elated-kepler-1f7dec.netlify.app/" + prdctId;
+
+// function prdct(product) {
+
+//     detailsPage.innerHTML += `
+
+//     <div class="item-page_img">
+
+//     <img src=${product.pageImg} alt="men wearing RainyDays jacet" class="item3-img ">
+
+//   </div>
+
+//   <div class="item-page-informastion">
+
+//       <div class="item-info">
+//       <h1>${product.name}</h1>
+//       <p>${product.catagory}</p>
+//       <h3>Item number : ${product.itemNumber}</h3>
+//       </div>
+
+//       <div>
+//         <h2>Color</h2>
+//         <p>${product.color}</p>
+//       </div>
+
+//       <div>
+//         <h2>Size</h2>
+//         <p>One size</p>
+//       </div>
+
+//       <div class="item-price">
+//                <div class="sale-price">
+//               <h2>${product.price}$</h2>
+//               <h4 class="before-sale bfr-sale">800$</h4>
+
+//               </div>
+//                 <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
+
+//                 </div>
+
+// //     `
+
+// }
+
+// prdct(saleProductList[0]);
 
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {

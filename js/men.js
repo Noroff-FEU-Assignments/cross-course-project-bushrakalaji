@@ -1,96 +1,50 @@
 // import { menProductList } from "./contants/menProductList.js";
 // console.log(menProductList);
 
-
 let cartArray = [];
-
 
 const productContainer = document.querySelector(".man-page");
 const cartNumberLength = document.querySelector(".cart-number");
-const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?product_cat=19"
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products";
 
-async function getapi(){
-
+async function getapi() {
   try {
-
     const responce = await fetch(url);
     const result = await responce.json();
-    // const men = result;
+    const filterResults = result.filter((item) => item.categories[0].id === 19);
+    console.log({ filterResults });
 
-   console.log(result);
-
-
-  result.forEach(function(menPrdcts) {
-  
-  productContainer.innerHTML +=  `
-  
- 
-    <div class="items"> 
-    
-    <h2>${menPrdcts.name}</h2>
-    <h3>${menPrdcts.categories[0].name}</h3>
-    <p>${menPrdcts.prices.price}$</p>
-    
-    <button type="button" class= "blue-botton cta_blue-big" data-product="${menPrdcts.id}">Add to cart</button>
-  </div>
-  
-  `  
-  
-  });
- 
-
-
-    
-
+    filterResults.forEach(function (prdcts) {
+      productContainer.innerHTML += `
+        <div class="items"> 
+        <a href="menDetails.html?id=${prdcts.id}" class="item-grid"><img src=${prdcts.images[0].src} alt="woman wearing a raincoat"></a>
+          <h2>${prdcts.name}</h2>
+          <h3>${prdcts.categories[0].name}</h3>
+          <p>${prdcts.prices.price}$</p>
+          <button type="button" class= "blue-botton cta_blue-big" data-product="${prdcts.id}">Add to cart</button>
+        </div>`;
+    });
+  } catch (error) {
+    console.log("error: ", error);
   }
-
-
-
-catch {
-
 }
-}
-getapi()
+getapi();
 
 // menProductList.forEach((product) => {
 //   productContainer.innerHTML += `
-  
- 
-//   <div class="items"> 
-  
+
+//   <div class="items">
+
 // <a href="menDetails.html?id=${product.id} class="item-grid"" ><img src=${product.image} alt="woman wearing a raincoat"></a>
 //   <h2>${product.name}</h2>
 //   <h3>${product.catagory}</h3>
 //   <p>${product.price}$</p>
-  
+
 //   <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
 // </div>
 
-
-   
-  
 //     `;
 // });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {

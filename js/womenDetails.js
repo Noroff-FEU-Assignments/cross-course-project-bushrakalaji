@@ -1,6 +1,6 @@
-import { womenProductList } from "./contants/womenProductList.js";
+// import { womenProductList } from "./contants/womenProductList.js";
 
-console.log(womenProductList);
+// console.log(womenProductList);
 let cartArray = [];
 
 const cartNumberLength = document.querySelector(".cart-number");
@@ -11,50 +11,90 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 
-const prdctId = params.get("id");
+const id = params.get("id");
 
-const singleUrl = "https://elated-kepler-1f7dec.netlify.app/" + prdctId;
+const singleUrl ="https://rainydays.bushrakalaji.com/wp-json/wc/store/products/" + id;
 
-
-function prdct(product) {
-  
-    detailsPage.innerHTML += `
+async function singleResult() {
+  try {
+    const responce = await fetch(singleUrl);
+    const singelResult = await responce.json();
+    console.log({ singelResult });
     
+    detailsPage.innerHTML += `
+
     <div class="item-page_img">
 
-    <img src=${product.pageImg} alt="men wearing RainyDays jacet" class="item3-img ">
+    <img src=${singelResult.images[1].src} alt="men wearing RainyDays jacet" class="item3-img ">
+    </div>
+    
+    <div class="item-page-informastion">
+    
+    <div class="item-info">
+    <h1>${singelResult.name}</h1>
+      <p>${singelResult.tags[0].name}</p>
+      <h3>Item number : ${singelResult.sku}</h3>
+    </div>
+    
+    <div>
+    <h2>Color</h2>
+    <p>${singelResult.short_description}</p>
+    </div>
+    
+    <div>
+    <h2>Size</h2>
+    <p>One size</p>
+    </div>
+    
+    <div class="item-price">
+    <h2>${singelResult.prices.price} ${singelResult.prices.currency_symbol}</h2>
+    <button type="button" class= "blue-botton cta_blue-big" data-product="${singelResult.id}">Add to cart</button>
+    </div>
+  `;
+  } catch (error) {
+    console.log("error: ", error)
+  }
+}
+singleResult();
+// function prdct(product) {
+  
+//     detailsPage.innerHTML += `
+    
+//     <div class="item-page_img">
+
+//     <img src=${product.pageImg} alt="men wearing RainyDays jacet" class="item3-img ">
    
 
-  </div>
+//   </div>
 
-  <div class="item-page-informastion">
+//   <div class="item-page-informastion">
 
-      <div class="item-info">
-      <h1>${product.name}</h1>
-      <p>${product.catagory}</p>
-      <h3>Item number : ${product.itemNumber}</h3>
-      </div>
+//       <div class="item-info">
+//       <h1>${product.name}</h1>
+//       <p>${product.catagory}</p>
+//       <h3>Item number : ${product.itemNumber}</h3>
+//       </div>
 
-      <div>
-        <h2>Color</h2>
-        <p>${product.color}</p>
-      </div>
+//       <div>
+//         <h2>Color</h2>
+//         <p>${product.color}</p>
+//       </div>
 
-      <div>
-        <h2>Size</h2>
-        <p>One size</p>
-      </div>
+//       <div>
+//         <h2>Size</h2>
+//         <p>One size</p>
+//       </div>
 
-      <div class="item-price">
-      <h2>${product.price}$</h2>
-      <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
-      </div>
-    `
+//       <div class="item-price">
+//       <h2>${product.price}$</h2>
+//       <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
+//       </div>
+//     `
 
   
-}
+// }
 
-prdct(womenProductList[0]);
+// prdct(womenProductList[0]);
 
 
 const addToCart = document.querySelectorAll("button");

@@ -1,50 +1,70 @@
-import {womenProductList} from "./contants/womenProductList.js";
-console.log(womenProductList);
+// import {womenProductList} from "./contants/womenProductList.js";
+// console.log(womenProductList);
 let cartArray = [];
 
 const productContainer = document.querySelector(".women-page");
 const cartNumberLength = document.querySelector(".cart-number");
-womenProductList.forEach((product) => {
-  productContainer.innerHTML += `
-     
-  
-  <div class="items">
-       <a href="womenDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"s></a>
-        <h2>${product.name}</h2>
-        <h3>${product.catagory}</h3>
-        <p>${product.price} $</p>
-        <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
-      </div>
-  </div>
-     
-    
-    `;
-});
+
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?_embed";
+async function getapi() {
+  try {
+    const responce = await fetch(url);
+    const result = await responce.json();
+    const filterResults = result.filter((item) => item.categories[0].id === 18);
+    console.log({ filterResults });
+    console.log({result});
+
+    filterResults.forEach(function (prdcts) {
+      productContainer.innerHTML += `
+        <div class="items"> 
+        <a href="menDetails.html?id=${prdcts.id}" class="item-grid"><img src=${prdcts.images[0].src} alt="woman wearing a raincoat"></a>
+          <h2>${prdcts.name}</h2>
+          <h3>${prdcts.categories[0].name}</h3>
+          <p>${prdcts.prices.price}$</p>
+          <button type="button" class= "blue-botton cta_blue-big" data-product="${prdcts.id}">Add to cart</button>
+        </div>`;
+    });
+  } catch (error) {
+    console.log("error: ", error);
+  }
+}
+getapi();
+
+// womenProductList.forEach((product) => {
+//   productContainer.innerHTML += `
+
+//   <div class="items">
+//        <a href="womenDetails.html?id=${product.id}" class="item-grid"><img src=${product.image} alt="woman wearing a raincoat"s></a>
+//         <h2>${product.name}</h2>
+//         <h3>${product.catagory}</h3>
+//         <p>${product.price} $</p>
+//         <button type="button" class= "blue-botton cta_blue-big" data-product="${product.id}">Add to cart</button>
+//       </div>
+//   </div>
+
+//     `;
+// });
 
 const addToCart = document.querySelectorAll("button");
 addToCart.forEach((button) => {
   button.addEventListener("click", handleclick);
-
-
-
 });
 
-function handleclick(event){
-    // const id = this.dataset.product;
-    // cartArray.push(event.target.dataset.product);
-    const itemToAdd = womenProductList.find(item => item.id == event.target.dataset.product);
-    cartArray.push(itemToAdd);
-    console.log(cartArray);
-    localStorage.setItem("cartNumber", JSON.stringify(cartArray.length))
-    localStorage.setItem("cartList", JSON.stringify(cartArray));
-    showNumber()
-   ;
+function handleclick(event) {
+  // const id = this.dataset.product;
+  // cartArray.push(event.target.dataset.product);
+  const itemToAdd = womenProductList.find(
+    (item) => item.id == event.target.dataset.product
+  );
+  cartArray.push(itemToAdd);
+  console.log(cartArray);
+  localStorage.setItem("cartNumber", JSON.stringify(cartArray.length));
+  localStorage.setItem("cartList", JSON.stringify(cartArray));
+  showNumber();
 }
 
-function showNumber(){   
-     let cartStorge = JSON.parse(localStorage.getItem("cartNumber"))
-    cartNumberLength.innerHTML ="";
-    cartNumberLength.innerHTML = cartStorge;
-  
-    
-} 
+function showNumber() {
+  let cartStorge = JSON.parse(localStorage.getItem("cartNumber"));
+  cartNumberLength.innerHTML = "";
+  cartNumberLength.innerHTML = cartStorge;
+}

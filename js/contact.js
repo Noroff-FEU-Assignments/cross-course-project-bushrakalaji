@@ -32,7 +32,6 @@ function validateForm(event) {
   } else {
     emailError.style.display = "block";
   }
-
 }
 
 contactForm.addEventListener("submit", validateForm);
