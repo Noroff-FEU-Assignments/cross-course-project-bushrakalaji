@@ -6,7 +6,7 @@ const productContainer = document.querySelector(".sale-page");
 const cartNumberLength = document.querySelector(".cart-number");
 
 
-const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products"
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?per_page=50"
 
 async function getapi(){
 

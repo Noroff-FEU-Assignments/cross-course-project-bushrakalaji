@@ -3,7 +3,7 @@
 let cartArray = [];
 const productContainer = document.querySelector(".best-product");
 const cartNumberLength = document.querySelector(".cart-number");
-const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?_embed";
+const url = "https://rainydays.bushrakalaji.com/wp-json/wc/store/products?per_page=50";
 
 async function getapi() {
   try {
