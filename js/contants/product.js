@@ -1,0 +1,33 @@
+export const productArray = [
+  {
+    name: "RAINYDAYS RAIN JACET",
+    id: 1,
+    size: "One Size",
+    color: "gry",
+    catagory: "Women",
+    price: 150,
+    image : "../images/item-1.jpg",
+    Url: "bestInTestDetails.html",
+  },
+  {
+  name: "RAINYDAYS RAIN JACET",
+  id: 2,
+  size: "One Size",
+  color: "Green",
+  catagory: "Women",
+  price: 220,
+  image : "../images/item-2.jpeg",
+  Url: "womanDetails.html",
+},
+{
+    name: "RAINYDAYS RAIN JACET",
+    id:3,
+    size: "One Size",
+    color: "Navi",
+    catagory: "Men",
+    price: 200,
+    image: "../images/item-3.jpeg",
+    itemNumber: "#333333",
+    Url: "menDetails.html",
+  },
+];
