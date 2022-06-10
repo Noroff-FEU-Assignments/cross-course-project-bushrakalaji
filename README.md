@@ -1,6 +1,6 @@
 # Rainydays
 
-![image](https://raw.githubusercontent.com/Noroff-FEU-Assignments/cross-course-project-bushrakalaji/c8f087aa01e2329382873806f51b470a6bc02ab3/images/1C09B558-D1F0-4E57-8757-6CF4D4F2814A_1_105_c.jpeg?token=AV2O5QO5RI36GZGIWS5EUUTCUO352)
+![image](https://raw.githubusercontent.com/Noroff-FEU-Assignments/cross-course-project-bushrakalaji/c8f087aa01e2329382873806f51b470a6bc02ab3/images/1C09B558-D1F0-4E57-8757-6CF4D4F2814A_1_105_c.jpeg)
 
 Page overview on different devices.
 
