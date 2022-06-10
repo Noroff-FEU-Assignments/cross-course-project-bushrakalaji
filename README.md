@@ -1,4 +1,4 @@
-# COMMUNITY SCIENCE MUSEUM
+# Rainydays
 
 ![image](https://raw.githubusercontent.com/Noroff-FEU-Assignments/cross-course-project-bushrakalaji/main/images/1C09B558-D1F0-4E57-8757-6CF4D4F2814A_1_105_c.jpeg?token=GHSAT0AAAAAABTWW3GZ4MKR6J5WORTKAR2CYVDWQ7Q)
 
