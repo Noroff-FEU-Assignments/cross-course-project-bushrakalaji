@@ -6,24 +6,31 @@ Page overview on different devices.
 
 ## Description
 
-An interactive science museum called the Community Science Museum.
-Its core target audience is primary and middle school children (7-15) and families with young children.
-The website is informative and appealing, designed to attract middle school pupils and their parents. 
-The website is responsive and easy to use on a variety of devices.
+This is the first website I built during my studies in front end development.
 
-## Site architecture :
+An online shop selling men's and women’s rain jackets. They are designed for a range of different outdoor activities that enriches people's lives.
 
-- Home 
-- Explore
-- Exhibition Spaces (A special page for each space)
-- Visit us
-- Contact us
+Website content is dynamic. The posts, post details, and images are loaded into the page from WordPress, acting as a headless CMS.
+
+
+### Target audience:
+Men and women aged 30 to 50 whose interests are: being outdoors, hiking, exploring, skiing, camping, canoeing.
+
+### Site architecture :
+
+- Home
+- List of Jackets
+- A jacket specific page showing the jacket
+- A cart page
+- Contact 
+- About 
 
 
 ## Built With
 
 - [HTML](https://html.com/)
 - [CSS](https://css.com/)
+- [JavaScript](https://www.javascript.com/)
 
 
 ## Contact
